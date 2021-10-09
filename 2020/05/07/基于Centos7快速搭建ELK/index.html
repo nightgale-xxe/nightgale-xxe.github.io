@@ -1,0 +1,394 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>基于Centos快速搭建ELK | 夜莺</title><meta name="keywords" content="ELK"><meta name="author" content="夜莺"><meta name="copyright" content="夜莺"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="基于Centos快速搭建ELK[TOC]  ELK是一个成熟的日志系统，主要功能有收集、分析、检索，详细见 elastic官网。 本文主要介绍如何在CentOS7下安装最新版本的ELK，当然现在docker已经有完全配置成功的elk容器，安装配置非常方便.  环境准备 centos-7-x86_64 java8 elasticsearch-7.6.2 kibana-7.6.2 logstash-7">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Centos快速搭建ELK">
+<meta property="og:url" content="http://example.com/2020/05/07/%E5%9F%BA%E4%BA%8ECentos7%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BAELK/index.html">
+<meta property="og:site_name" content="夜莺">
+<meta property="og:description" content="基于Centos快速搭建ELK[TOC]  ELK是一个成熟的日志系统，主要功能有收集、分析、检索，详细见 elastic官网。 本文主要介绍如何在CentOS7下安装最新版本的ELK，当然现在docker已经有完全配置成功的elk容器，安装配置非常方便.  环境准备 centos-7-x86_64 java8 elasticsearch-7.6.2 kibana-7.6.2 logstash-7">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588876239117&di=b4d1003190291d3da14c10004a58c036&imgtype=0&src=http%3A%2F%2Fp4.ssl.qhimg.com%2Ft0187295c3528fa925f.png">
+<meta property="article:published_time" content="2020-05-07T15:44:24.000Z">
+<meta property="article:modified_time" content="2021-09-28T09:37:54.469Z">
+<meta property="article:author" content="夜莺">
+<meta property="article:tag" content="ELK">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588876239117&di=b4d1003190291d3da14c10004a58c036&imgtype=0&src=http%3A%2F%2Fp4.ssl.qhimg.com%2Ft0187295c3528fa925f.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2020/05/07/%E5%9F%BA%E4%BA%8ECentos7%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BAELK/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '基于Centos快速搭建ELK',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-09-28 17:37:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="referrer" content="no-referrer-when-downgrade" /><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/custom.css"><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="夜莺" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/A.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588876239117&amp;di=b4d1003190291d3da14c10004a58c036&amp;imgtype=0&amp;src=http%3A%2F%2Fp4.ssl.qhimg.com%2Ft0187295c3528fa925f.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">夜莺</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">基于Centos快速搭建ELK</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-05-07T15:44:24.000Z" title="发表于 2020-05-07 23:44:24">2020-05-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-09-28T09:37:54.469Z" title="更新于 2021-09-28 17:37:54">2021-09-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AE%89%E5%85%A8%E8%BF%90%E8%90%A5/">安全运营</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="基于Centos快速搭建ELK"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="基于Centos快速搭建ELK"><a href="#基于Centos快速搭建ELK" class="headerlink" title="基于Centos快速搭建ELK"></a>基于Centos快速搭建ELK</h1><p>[TOC]</p>
+<blockquote>
+<p>ELK是一个成熟的日志系统，主要功能有收集、分析、检索，详细见 <a target="_blank" rel="noopener" href="https://www.elastic.co/cn/products">elastic官网</a>。</p>
+<p>本文主要介绍如何在CentOS7下安装最新版本的ELK，当然现在docker已经有完全配置成功的elk容器，安装配置非常方便.</p>
+</blockquote>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
+<li>centos-7-x86_64</li>
+<li>java8</li>
+<li>elasticsearch-7.6.2</li>
+<li>kibana-7.6.2</li>
+<li>logstash-7.6.2</li>
+</ul>
+<h2 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h2><h3 id="关闭防火墙和Selinux"><a href="#关闭防火墙和Selinux" class="headerlink" title="关闭防火墙和Selinux"></a>关闭防火墙和Selinux</h3><p><strong>关闭Selinux</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/selinux</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELINUX=disabled      #需重启永久生效 </span><br><span class="line">wq                    #保存退出</span><br><span class="line">setenforce 0             #临时生效</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/image-20200504171123609.png" alt="image-20200504171123609"></p>
+<p><strong>关闭Firewalld</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl stop firewalld         #关闭防火墙</span><br><span class="line">systemctl disable firewalld    #禁止开机自启</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/image-20200504171423477.png" alt="image-20200504171423477"></p>
+<h3 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h3><p>先是确认环境rpm -qa|grep <a target="_blank" rel="noopener" href="https://www.linuxidc.com/Java">Java</a><br>如果有其他版本的请删除<br>rpm–e –nodeps java-*<br>检查是否删除<br>java –version</p>
+<h3 id="安装Elasticsearch"><a href="#安装Elasticsearch" class="headerlink" title="安装Elasticsearch"></a>安装Elasticsearch</h3><ol>
+<li>导入密钥</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>下载最新的安装包</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.6.2-x86_64.rpm</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>下载较慢的话建议科学下载</p>
+</blockquote>
+<ol start="3">
+<li>安装</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rpm -ivh elasticsearch-7.6.2-x86_64.rpm </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/image-20200504174503913.png" alt="image-20200504174503913"></p>
+<ol start="4">
+<li>配置</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/elasticsearch/elasticsearch.yml</span><br></pre></td></tr></table></figure>
+
+<p>取消以下两行的注释</p>
+<p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/image-20200504174906489.png" alt="image-20200504174906489"></p>
+<p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/image-20200504175014902.png" alt="image-20200504175014902"></p>
+<ol start="5">
+<li>启动</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# systemctl daemon-reload</span><br><span class="line">[root@localhost ~]# systemctl enable elasticsearch</span><br><span class="line">[root@localhost ~]# systemctl start elasticsearch</span><br><span class="line">[root@localhost ~]# netstat -plntu</span><br></pre></td></tr></table></figure>
+
+<p>观察到9200端口，证明启动成功</p>
+<p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/image-20200504175254546.png" alt="image-20200504175254546"></p>
+<h3 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h3><ol>
+<li>安装</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# yum install epel-release -y[root@localhost ~]# yum install nginx httpd-tools -y</span><br></pre></td></tr></table></figure>
+
+<p>安装Nginx之前要先安装epel源</p>
+<ol start="2">
+<li>配置</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
+
+<p>这里把位于36、59行之间的Server块删掉，更多的配置项在 /etc/nginx/conf.d/*.conf中</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">36 include /etc/nginx/conf.d/*.conf;Server &#123; &#125;59# Settings for a TLS enabled server.</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/image-20200504180031958.png" alt="image-20200504180031958"></p>
+<h3 id="Kibanna添加代理"><a href="#Kibanna添加代理" class="headerlink" title="Kibanna添加代理"></a>Kibanna添加代理</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/nginx/conf.d/kibana.conf</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这里域名为 elk-stack.co，然后使用http协议的basic认证，密码稍后添加，然后看location块，当Nginx监听到域名为elk-stack.co，端口为80的请求时，就会转发给本地监听端口5601的进程，这个进程就是kibana，下一步安装它，内容如下：</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server &#123;listen 80;server_name elk-stack.co;auth_basic &quot;Restricted Access&quot;;auth_basic_user_file /etc/nginx/.kibana-user;location / &#123;    proxy_pass http://localhost:5601;    proxy_http_version 1.1;    proxy_set_header Upgrade $http_upgrade;    proxy_set_header Connection &#x27;upgrade&#x27;;    proxy_set_header Host $host;    proxy_cache_bypass $http_upgrade;&#125; &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/image-20200507221717828.png" alt="image-20200507221717828"></p>
+<h3 id="Elasticsearch添加代理"><a href="#Elasticsearch添加代理" class="headerlink" title="Elasticsearch添加代理"></a>Elasticsearch添加代理</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/nginx/conf.d/elasticsearch.conf</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>当Nginx监听到域名为elk-stack.co，端口为81的请求时，就会转发给本地监听端口9200的进程，这个进程就是Elasticsearch</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server &#123;listen 81;server_name elk-stack.co;location / &#123;    proxy_pass http://localhost:9200;    proxy_http_version 1.1;    proxy_set_header Upgrade $http_upgrade;    proxy_set_header Connection &#x27;upgrade&#x27;;    proxy_set_header Host $host;    proxy_cache_bypass $http_upgrade;&#125; &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/image-20200507222435945.png" alt="image-20200507222435945"></p>
+<h3 id="添加basic认证"><a href="#添加basic认证" class="headerlink" title="添加basic认证"></a>添加basic认证</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">htpasswd -c /etc/nginx/.kibana-user admin</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>然后输入你的密码，记住最后要通过这个来登录kibana的</p>
+</blockquote>
+<h3 id="测试Nginx配置"><a href="#测试Nginx配置" class="headerlink" title="测试Nginx配置"></a>测试Nginx配置</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nginx -t</span><br></pre></td></tr></table></figure>
+
+<p>出现如下证明Nginx成功</p>
+<p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/image-20200507223447583.png" alt="image-20200507223447583"></p>
+<blockquote>
+<p>如果出现 test failed，就回过头检查/etc/nginx/conf.d/kibana.conf和/etc/nginx/nginx.conf这两个文件，肯定是不小心弄错了。<br>如果输出 test is successful，那么就可以启动 nginx 了</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl enable nginxsystemctl start nginx</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装Kibana"><a href="#安装Kibana" class="headerlink" title="安装Kibana"></a>安装Kibana</h3><ol>
+<li>下载好对应的rpm包</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rpm -ivh kibana-7.6.2-x86_64.rpm </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/image-20200507225326794.png" alt="image-20200507225326794"></p>
+<ol start="2">
+<li>修改Kibana配置</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/kibana/kibana.yml</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>取消2、7、28行的注释，行号不一定准确，但一定是下面这几项（各个版本行号可能有出入）</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server.port: 5601server.host: &quot;localhost&quot;elasticsearch.url: &quot;http://localhost:9200&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/image-20200507231907245.png" alt="image-20200507231907245"></p>
+<p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/image-20200507232332287.png" alt="image-20200507232332287"></p>
+<p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/image-20200507232609205.png" alt="image-20200507232609205"></p>
+<ol start="4">
+<li>启动Kibana</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl enable kibanasystemctl start kibananetstat -plntu</span><br></pre></td></tr></table></figure>
+
+<p>出现5601端口代表Kibana启动成功</p>
+<p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/image-20200507233100421.png" alt="image-20200507233100421"></p>
+<h3 id="安装Logstash"><a href="#安装Logstash" class="headerlink" title="安装Logstash"></a>安装Logstash</h3><ol>
+<li><p>下载对应的rpm包</p>
+</li>
+<li><p>安装</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rpm -ivh logstash-7.6.2.rpm</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/image-20200507233242902.png" alt="image-20200507233242902"></p>
+<ol start="3">
+<li>启动</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl enable logstashsystemctl start logstash</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装成功"><a href="#安装成功" class="headerlink" title="安装成功"></a>安装成功</h2><p>访问对应ip的80端口</p>
+<p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/image-20200507233840411.png" alt="image-20200507233840411"></p>
+<p>如需用上面的域名访问，添加一条hosts就行</p>
+<blockquote>
+<p>后面ELK优化敬请期待下一篇文章~</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">夜莺</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2020/05/07/%E5%9F%BA%E4%BA%8ECentos7%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BAELK/">http://example.com/2020/05/07/基于Centos7快速搭建ELK/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">夜莺</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ELK/">ELK</a></div><div class="post_share"><div class="social-share" data-image="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588876239117&amp;di=b4d1003190291d3da14c10004a58c036&amp;imgtype=0&amp;src=http%3A%2F%2Fp4.ssl.qhimg.com%2Ft0187295c3528fa925f.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/05/18/Hackbox-%E5%88%9D%E6%8E%A2/"><img class="prev-cover" src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/DPYf7a.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Hackbox初探</div></div></a></div><div class="next-post pull-right"><a href="/2020/05/03/MoriartyCorp%E9%9D%B6%E5%9C%BA%E4%B8%80%E6%97%A5%E6%B8%B8/"><img class="next-cover" src="https://tva1.sinaimg.cn/large/006Xzox4ly1gdur6i3nqyg306o06owpl.gif" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">MoriartyCorp靶场一日游</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/A.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">夜莺</div><div class="author-info__description">行人事，听天命</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/nightgale-xxe"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8ECentos%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BAELK"><span class="toc-number">1.</span> <span class="toc-text">基于Centos快速搭建ELK</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">1.1.</span> <span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">安装过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E5%92%8CSelinux"><span class="toc-number">1.2.1.</span> <span class="toc-text">关闭防火墙和Selinux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85JDK"><span class="toc-number">1.2.2.</span> <span class="toc-text">安装JDK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Elasticsearch"><span class="toc-number">1.2.3.</span> <span class="toc-text">安装Elasticsearch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Nginx"><span class="toc-number">1.2.4.</span> <span class="toc-text">安装Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kibanna%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86"><span class="toc-number">1.2.5.</span> <span class="toc-text">Kibanna添加代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Elasticsearch%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86"><span class="toc-number">1.2.6.</span> <span class="toc-text">Elasticsearch添加代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0basic%E8%AE%A4%E8%AF%81"><span class="toc-number">1.2.7.</span> <span class="toc-text">添加basic认证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95Nginx%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.8.</span> <span class="toc-text">测试Nginx配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Kibana"><span class="toc-number">1.2.9.</span> <span class="toc-text">安装Kibana</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Logstash"><span class="toc-number">1.2.10.</span> <span class="toc-text">安装Logstash</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="toc-number">1.3.</span> <span class="toc-text">安装成功</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/10/27/Slack%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%8C%E6%88%90%E5%AD%90%E5%9F%9F%E5%90%8D%E7%9B%91%E6%8E%A7/" title="Slack自动化完成子域名监控"><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fambition-media.s3.amazonaws.com%2Finternal%2Fmarketing%2Fintegration_images%2Fslack.png&amp;refer=http%3A%2F%2Fambition-media.s3.amazonaws.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1619338733&amp;t=8f16a0c855749ae21d82b78c8a46cc84" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Slack自动化完成子域名监控"/></a><div class="content"><a class="title" href="/2020/10/27/Slack%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%8C%E6%88%90%E5%AD%90%E5%9F%9F%E5%90%8D%E7%9B%91%E6%8E%A7/" title="Slack自动化完成子域名监控">Slack自动化完成子域名监控</a><time datetime="2020-10-27T07:05:13.000Z" title="发表于 2020-10-27 15:05:13">2020-10-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/09/13/NPS%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" title="NPS快速实战"><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/PLLVpo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="NPS快速实战"/></a><div class="content"><a class="title" href="/2020/09/13/NPS%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" title="NPS快速实战">NPS快速实战</a><time datetime="2020-09-13T06:49:22.000Z" title="发表于 2020-09-13 14:49:22">2020-09-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/16/%E7%BA%A2%E9%98%9F%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E6%90%AD%E5%BB%BA-RedCloud/" title="红队基础设施搭建-RedCloud"><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/mQ5G0n.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红队基础设施搭建-RedCloud"/></a><div class="content"><a class="title" href="/2020/08/16/%E7%BA%A2%E9%98%9F%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E6%90%AD%E5%BB%BA-RedCloud/" title="红队基础设施搭建-RedCloud">红队基础设施搭建-RedCloud</a><time datetime="2020-08-16T08:30:47.000Z" title="发表于 2020-08-16 16:30:47">2020-08-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/06/25/Kerberos%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" title="Kerberos学习记录"><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/BJW4eo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Kerberos学习记录"/></a><div class="content"><a class="title" href="/2020/06/25/Kerberos%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" title="Kerberos学习记录">Kerberos学习记录</a><time datetime="2020-06-25T02:20:50.000Z" title="发表于 2020-06-25 10:20:50">2020-06-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/06/14/C2-shad0w/" title="C2-shad0w"><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/IYxhOn.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C2-shad0w"/></a><div class="content"><a class="title" href="/2020/06/14/C2-shad0w/" title="C2-shad0w">C2-shad0w</a><time datetime="2020-06-14T08:03:24.000Z" title="发表于 2020-06-14 16:03:24">2020-06-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2021 By 夜莺</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><canvas id="universe"></canvas><script data-pjax src="/js/bubbles.js"></script><script data-pjax src="/js/universe.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

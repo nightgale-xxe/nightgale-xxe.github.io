@@ -1,0 +1,296 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>红队基础设施搭建-RedCloud | 夜莺</title><meta name="keywords" content="Redteam"><meta name="author" content="夜莺"><meta name="copyright" content="夜莺"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="##0x01 引子  在红队行动中，为了匿名和便携性，经常会重复性的建设基础设施，如C2、钓鱼、代理平台等等，这样会浪费大量的精力和时间，如何去快速部署迁移这些基础设施呢？最近看到一个挺不错的项目，非常适合红队快速部署设施。  0x02 简介 RedCloud是一款强大的工具箱，使用Docker快速部署红队设施，能够在几分钟内快速部署如Kali、Metasploit、Gofish等基础设施，并且通">
+<meta property="og:type" content="article">
+<meta property="og:title" content="红队基础设施搭建-RedCloud">
+<meta property="og:url" content="http://example.com/2020/08/16/%E7%BA%A2%E9%98%9F%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E6%90%AD%E5%BB%BA-RedCloud/index.html">
+<meta property="og:site_name" content="夜莺">
+<meta property="og:description" content="##0x01 引子  在红队行动中，为了匿名和便携性，经常会重复性的建设基础设施，如C2、钓鱼、代理平台等等，这样会浪费大量的精力和时间，如何去快速部署迁移这些基础设施呢？最近看到一个挺不错的项目，非常适合红队快速部署设施。  0x02 简介 RedCloud是一款强大的工具箱，使用Docker快速部署红队设施，能够在几分钟内快速部署如Kali、Metasploit、Gofish等基础设施，并且通">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/mQ5G0n.png">
+<meta property="article:published_time" content="2020-08-16T08:30:47.000Z">
+<meta property="article:modified_time" content="2021-09-28T09:44:12.501Z">
+<meta property="article:author" content="夜莺">
+<meta property="article:tag" content="Redteam">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/mQ5G0n.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2020/08/16/%E7%BA%A2%E9%98%9F%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E6%90%AD%E5%BB%BA-RedCloud/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '红队基础设施搭建-RedCloud',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-09-28 17:44:12'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="referrer" content="no-referrer-when-downgrade" /><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/custom.css"><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="夜莺" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/A.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/mQ5G0n.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">夜莺</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">红队基础设施搭建-RedCloud</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-16T08:30:47.000Z" title="发表于 2020-08-16 16:30:47">2020-08-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-09-28T09:44:12.501Z" title="更新于 2021-09-28 17:44:12">2021-09-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/RedTeam/">RedTeam</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="红队基础设施搭建-RedCloud"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>##0x01 引子</p>
+<blockquote>
+<p>在红队行动中，为了匿名和便携性，经常会重复性的建设基础设施，如C2、钓鱼、代理平台等等，这样会浪费大量的精力和时间，如何去快速部署迁移这些基础设施呢？最近看到一个挺不错的项目，非常适合红队快速部署设施。</p>
+</blockquote>
+<h2 id="0x02-简介"><a href="#0x02-简介" class="headerlink" title="0x02 简介"></a>0x02 简介</h2><blockquote>
+<p>RedCloud是一款强大的工具箱，使用Docker快速部署红队设施，能够在几分钟内快速部署如Kali、Metasploit、Gofish等基础设施，并且通过Web界面管理容器。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/khast3x/Redcloud">RedCloud-Github传送门</a></p>
+<p>RedCloud文件架构：</p>
+<ul>
+<li><code>RedCloud.py</code>:使用Docker和Portainer启动/停止Web界面和应用模板</li>
+<li><code>Portainer</code>:Portainer Web界面</li>
+<li><code>traefik</code>:Traefik反向代理容器到Web界面，api和文件容器</li>
+<li><code>templates</code> :http.server提供基础设施的python3 容器</li>
+<li><code>cert_gen</code>：生成SSL证书的<a target="_blank" rel="noopener" href="https://github.com/paulczar/omgwtfssl">omgwtfssl</a>容器。</li>
+</ul>
+<p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/uaUYJa.png" alt="uaUYJa"></p>
+<p>相关URL：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://your-server-ip/portainer">https:/your-server-ip /</a> portainer : RedCloud web界面</li>
+<li><a target="_blank" rel="noopener" href="https://your-server-ip/files">https:// your-server-ip / files</a>:Redcloud <code>redcloud_files</code>文件卷。默认密码：admin/Redcloud</li>
+<li><a target="_blank" rel="noopener" href="https://your-server-ip/api">https// your-server-ip / api</a>：Traefik反向代理运行状况监视页面。显示有关路由，后端，返回码的实时统计信息。</li>
+</ul>
+<h2 id="0x03-环境信息"><a href="#0x03-环境信息" class="headerlink" title="0x03 环境信息"></a>0x03 环境信息</h2><p>Centos 7</p>
+<p>1核1G（穷🐶买不起服务器）</p>
+<p>此配置仅为测试，实战还是需要较高配置来搭建RedCloud。</p>
+<h2 id="0x04安装部署"><a href="#0x04安装部署" class="headerlink" title="0x04安装部署"></a>0x04安装部署</h2><ol>
+<li>下载拉取RedCloud存储库</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/khast3x/Redcloud.git</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>启动    <code>redcloud.py</code></li>
+</ol>
+<p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/tu1Ea3.png" alt="tu1Ea3"></p>
+<p>相关选项如下：</p>
+<ul>
+<li>在本地机器部署<code>RedCloud</code></li>
+<li>通过SSH远程部署<code>RedCloud</code></li>
+<li>远程部署Docker RedCloud</li>
+<li>停止本地应用或者docker机器</li>
+<li>停止远程部署</li>
+<li>列出所有可用的模板</li>
+</ul>
+<hr>
+<p>所有模板</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[&gt;] Metasploit - Nightly : Official bare Metasploit Alpine build. Includes beta features from dev branch.</span><br><span class="line"></span><br><span class="line">[&gt;] Metasploit - Stable + Postgresql : Debian Metasploit build with Postgres and additional helper scripts</span><br><span class="line"></span><br><span class="line">[&gt;] Empire : Pure Python &amp; PowerShell post-exploitation</span><br><span class="line"></span><br><span class="line">[&gt;] Sn1per : Automated pentest framework for offensive security experts</span><br><span class="line"></span><br><span class="line">[&gt;] Metasploithelper : MetasploitHelper is meant to assist penetration testers in network penetration tests. Comes with everything installed</span><br><span class="line"></span><br><span class="line">[&gt;] Pentest-tools : Ubuntu build with: searchsploit, sqlmap, nmap, nikto, dnsutils, sn1per, knock, sqliv, pasko, uniscan, wpscan, ncrack, wfuzz, sublist3r, massdns</span><br><span class="line"></span><br><span class="line">[&gt;] Kali - Bare : Official Kali container. Install desired metapackages</span><br><span class="line"></span><br><span class="line">[&gt;] Kali - Full : Non-Official Kali container with kali-linux-full metapackage installed, built every night</span><br><span class="line"></span><br><span class="line">[&gt;] Tor Socks Proxy : The smallest (15 MB) docker image with Tor and Privoxy on Alpine Linux</span><br><span class="line"></span><br><span class="line">[&gt;] Multi Tor Socks Proxy : A multi TOR (x10) + privoxy socks proxy instances load-balancer </span><br><span class="line"></span><br><span class="line">[&gt;] GoPhish : Open-Source Phishing Toolkit</span><br><span class="line"></span><br><span class="line">[&gt;] gscript : Framework to rapidly implement custom droppers for all three major operating systems</span><br><span class="line"></span><br><span class="line">[&gt;] Spiderfoot : SpiderFoot automates OSINT to find out everything possible about your target.</span><br><span class="line"></span><br><span class="line">[&gt;] ZAP Proxy WebSwing : Official in-browser version of ZAP.</span><br><span class="line"></span><br><span class="line">[&gt;] Ubuntu Web VNC : Docker container images with VNC and http NoVNC</span><br><span class="line"></span><br><span class="line">[&gt;] Kali Web noVNC + LXDE : Kali Docker container with minimal LXDE</span><br><span class="line"></span><br><span class="line">[&gt;] Lockdoor Framework : Lockdoor Framework : A Penetration Testing framework with Cyber Security Resources</span><br><span class="line"></span><br><span class="line">[&gt;] DVWA : Damn Vulnerable Web App (DVWA) is a PHP/MySQL web application that is damn vulnerable</span><br><span class="line"></span><br><span class="line">[&gt;] JuiceShop : OWASP Juice Shop is an intentionally insecure web application written entirely in JavaScript which encompasses the entire range of OWASP Top Ten and other severe security flaws.</span><br><span class="line"></span><br><span class="line">[&gt;] Vulnerable Wordpress : Vulnerable WordPress Installation</span><br><span class="line"></span><br><span class="line">[&gt;] Vulnerable Shellshock : Vulnerable Shellshock Installation - CVE-2014-6271</span><br><span class="line"></span><br><span class="line">[&gt;] Vulnerable SambaCry : Vulnerable Samba Installation - CVE-2017-7494</span><br><span class="line"></span><br><span class="line">[&gt;] OWASP Mutillidae II : Docker container for OWASP Mutillidae II Web Pen-Test Practice Application</span><br><span class="line"></span><br><span class="line">[&gt;] Network Utilities : A lightweight docker container with a set of networking tools&lt;br&gt;Use /bin/sh</span><br><span class="line"></span><br><span class="line">[&gt;] SoftEtherVPN : A simple SoftEther VPN server</span><br><span class="line"></span><br><span class="line">[&gt;] Cowrie Honeypot : SSH Honeypot that logs authentication attempts and interactions</span><br><span class="line"></span><br><span class="line">[&gt;] Endlessh tarpit : SSH tarpit that slowly sends an endless banner</span><br><span class="line"></span><br><span class="line">[&gt;] Beagle : Incident response and digital forensics tool which transforms data sources and logs into graphs. Supported data sources include FireEye HX Triages, Windows EVTX files, SysMon logs and Raw Windows memory images.</span><br><span class="line"></span><br><span class="line">[&gt;] Nginx : High performance web server</span><br><span class="line"></span><br><span class="line">[&gt;] Httpd : Open-source HTTP server</span><br><span class="line"></span><br><span class="line">[&gt;] Caddy : HTTP/2 web server with automatic HTTPS</span><br><span class="line"></span><br><span class="line">[&gt;] MySQL : The most popular open-source database</span><br><span class="line"></span><br><span class="line">[&gt;] PostgreSQL : The most advanced open-source database</span><br><span class="line"></span><br><span class="line">[&gt;] Elasticsearch : Open-source search and analytics engine</span><br><span class="line"></span><br><span class="line">[&gt;] Gitlab CE : Open-source end-to-end software development platform</span><br><span class="line"></span><br><span class="line">[&gt;] Minio : A distributed object storage server built for cloud applications and devops</span><br><span class="line"></span><br><span class="line">[&gt;] Solr : Open-source enterprise search platform</span><br><span class="line"></span><br><span class="line">[&gt;] Joomla : Another free and open-source CMS</span><br><span class="line"></span><br><span class="line">[&gt;] Drupal : Open-source content management framework</span><br><span class="line"></span><br><span class="line">[&gt;] Odoo : Open-source business apps</span><br><span class="line"></span><br><span class="line">[&gt;] Urbackup : Open-source network backup</span><br><span class="line"></span><br><span class="line">[&gt;] Portainer Agent : Manage all the resources in your Swarm cluster</span><br><span class="line"></span><br><span class="line">[&gt;] Wordpress : Wordpress setup with a MySQL database</span><br></pre></td></tr></table></figure>
+
+<h2 id="0x05-安装成功"><a href="#0x05-安装成功" class="headerlink" title="0x05 安装成功"></a>0x05 安装成功</h2><p><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/1urfxo.png" alt="1urfxo"></p>
+<p>后续只需要选择自己所需要的红队设施部署就行，启动对应的容器即可。后续还有新功能请自行摸索……鸽了咕咕咕咕</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">夜莺</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2020/08/16/%E7%BA%A2%E9%98%9F%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E6%90%AD%E5%BB%BA-RedCloud/">http://example.com/2020/08/16/红队基础设施搭建-RedCloud/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">夜莺</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Redteam/">Redteam</a></div><div class="post_share"><div class="social-share" data-image="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/mQ5G0n.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/09/13/NPS%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"><img class="prev-cover" src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/PLLVpo.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">NPS快速实战</div></div></a></div><div class="next-post pull-right"><a href="/2020/06/25/Kerberos%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"><img class="next-cover" src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/BJW4eo.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Kerberos学习记录</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/09/13/NPS快速使用技巧/" title="NPS快速实战"><img class="cover" src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/PLLVpo.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-13</div><div class="title">NPS快速实战</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/A.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">夜莺</div><div class="author-info__description">行人事，听天命</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/nightgale-xxe"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02-%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">0x02 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x03-%E7%8E%AF%E5%A2%83%E4%BF%A1%E6%81%AF"><span class="toc-number">2.</span> <span class="toc-text">0x03 环境信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x04%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2"><span class="toc-number">3.</span> <span class="toc-text">0x04安装部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x05-%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="toc-number">4.</span> <span class="toc-text">0x05 安装成功</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/10/27/Slack%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%8C%E6%88%90%E5%AD%90%E5%9F%9F%E5%90%8D%E7%9B%91%E6%8E%A7/" title="Slack自动化完成子域名监控"><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fambition-media.s3.amazonaws.com%2Finternal%2Fmarketing%2Fintegration_images%2Fslack.png&amp;refer=http%3A%2F%2Fambition-media.s3.amazonaws.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1619338733&amp;t=8f16a0c855749ae21d82b78c8a46cc84" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Slack自动化完成子域名监控"/></a><div class="content"><a class="title" href="/2020/10/27/Slack%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%8C%E6%88%90%E5%AD%90%E5%9F%9F%E5%90%8D%E7%9B%91%E6%8E%A7/" title="Slack自动化完成子域名监控">Slack自动化完成子域名监控</a><time datetime="2020-10-27T07:05:13.000Z" title="发表于 2020-10-27 15:05:13">2020-10-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/09/13/NPS%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" title="NPS快速实战"><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/PLLVpo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="NPS快速实战"/></a><div class="content"><a class="title" href="/2020/09/13/NPS%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" title="NPS快速实战">NPS快速实战</a><time datetime="2020-09-13T06:49:22.000Z" title="发表于 2020-09-13 14:49:22">2020-09-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/16/%E7%BA%A2%E9%98%9F%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E6%90%AD%E5%BB%BA-RedCloud/" title="红队基础设施搭建-RedCloud"><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/mQ5G0n.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红队基础设施搭建-RedCloud"/></a><div class="content"><a class="title" href="/2020/08/16/%E7%BA%A2%E9%98%9F%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E6%90%AD%E5%BB%BA-RedCloud/" title="红队基础设施搭建-RedCloud">红队基础设施搭建-RedCloud</a><time datetime="2020-08-16T08:30:47.000Z" title="发表于 2020-08-16 16:30:47">2020-08-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/06/25/Kerberos%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" title="Kerberos学习记录"><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/BJW4eo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Kerberos学习记录"/></a><div class="content"><a class="title" href="/2020/06/25/Kerberos%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" title="Kerberos学习记录">Kerberos学习记录</a><time datetime="2020-06-25T02:20:50.000Z" title="发表于 2020-06-25 10:20:50">2020-06-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/06/14/C2-shad0w/" title="C2-shad0w"><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/IYxhOn.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C2-shad0w"/></a><div class="content"><a class="title" href="/2020/06/14/C2-shad0w/" title="C2-shad0w">C2-shad0w</a><time datetime="2020-06-14T08:03:24.000Z" title="发表于 2020-06-14 16:03:24">2020-06-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2021 By 夜莺</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><canvas id="universe"></canvas><script data-pjax src="/js/bubbles.js"></script><script data-pjax src="/js/universe.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

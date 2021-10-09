@@ -1,0 +1,529 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>夜莺 - 夜莺</title><meta name="keywords" content="夜莺"><meta name="author" content="夜莺"><meta name="copyright" content="夜莺"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="行人事，听天命">
+<meta property="og:type" content="website">
+<meta property="og:title" content="夜莺">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="夜莺">
+<meta property="og:description" content="行人事，听天命">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/A.jpg">
+<meta property="article:author" content="夜莺">
+<meta property="article:tag" content="夜莺">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/A.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '夜莺',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-10-09 14:27:13'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="referrer" content="no-referrer-when-downgrade" /><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/custom.css"><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="夜莺" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/A.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/index.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">夜莺</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">夜莺</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/10/27/Slack%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%8C%E6%88%90%E5%AD%90%E5%9F%9F%E5%90%8D%E7%9B%91%E6%8E%A7/" title="Slack自动化完成子域名监控">     <img class="post_bg" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fambition-media.s3.amazonaws.com%2Finternal%2Fmarketing%2Fintegration_images%2Fslack.png&amp;refer=http%3A%2F%2Fambition-media.s3.amazonaws.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1619338733&amp;t=8f16a0c855749ae21d82b78c8a46cc84" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Slack自动化完成子域名监控"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/10/27/Slack%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%8C%E6%88%90%E5%AD%90%E5%9F%9F%E5%90%8D%E7%9B%91%E6%8E%A7/" title="Slack自动化完成子域名监控">Slack自动化完成子域名监控</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-27T07:05:13.000Z" title="发表于 2020-10-27 15:05:13">2020-10-27</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8/">神兵利器</a></span></div><div class="content">Slack自动化完成子域名监控[toc]
+0x01 环境准备
+ubuntu 18.04
+python3
+免费的Slack空间
+
+0x02 Sublert搭建git clone https://github.com/yassineaboukir/sublert.gitcd sublertpip3 install -r requirements.txt
+
+0x03 Slack与工具配置
+在官网https://slack.com/注册免费账户，并创建两个channel，如下所示，用于后期的子域名监控和错误信息汇总
+
+为第一步创建的Channel配置对应的webhook url在以下地址配置APPhttps://api.slack.com/apps
+
+点击Incoming Webhooks,创建两个Webhook指向之前创建的Channel
+
+复制第三步得到的Webhook URl。并配置到config.py中
+
+
+
+
+
+配置Crontab
+
+chmod +xcrontab -e0 */12 * * * cd /root/sublert/ &amp;&amp; /usr/bin/python3 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/09/13/NPS%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" title="NPS快速实战">     <img class="post_bg" src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/PLLVpo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="NPS快速实战"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/09/13/NPS%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" title="NPS快速实战">NPS快速实战</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-09-13T06:49:22.000Z" title="发表于 2020-09-13 14:49:22">2020-09-13</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/RedTeam/">RedTeam</a></span></div><div class="content">NPS快速使用技巧0x01 NPS搭建
+从github下载安装包
+
+Releases · ehang-io/nps
+
+注：服务端和客户端是单独分开的，同时注意系统架构版本
+
+
+构建
+
+下载完服务器压缩包后，解压，然后进入解压后的文件夹
+
+执行安装命令
+
+对于linux | darwin sudo ./nps install
+对于Windows，管理员身份运行cmd，进入安装目录 nps.exe install
+
+启动
+
+对于linux | darwin sudo nps start
+对于Windows，管理员身份运行cmd，进入程序目录 nps.exe start
+安装后windows配置文件位于 C:\Program Files\nps，linux和darwin位于/etc/nps
+停止和重启可用，stop和restart
+
+Windows日志文件位于当前运行目录下，linux和darwin位于/var/log/nps.log
+
+访问服务端ip：web服务端口（默认为8080）
+
+使用用户名和密码登陆（默认管理员/ 123，正式使用一定要更改）
+
+创建客户端
+
+
+
+0x02 NPS快 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/16/%E7%BA%A2%E9%98%9F%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E6%90%AD%E5%BB%BA-RedCloud/" title="红队基础设施搭建-RedCloud">     <img class="post_bg" src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/mQ5G0n.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红队基础设施搭建-RedCloud"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/16/%E7%BA%A2%E9%98%9F%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E6%90%AD%E5%BB%BA-RedCloud/" title="红队基础设施搭建-RedCloud">红队基础设施搭建-RedCloud</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-16T08:30:47.000Z" title="发表于 2020-08-16 16:30:47">2020-08-16</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/RedTeam/">RedTeam</a></span></div><div class="content">##0x01 引子
+
+在红队行动中，为了匿名和便携性，经常会重复性的建设基础设施，如C2、钓鱼、代理平台等等，这样会浪费大量的精力和时间，如何去快速部署迁移这些基础设施呢？最近看到一个挺不错的项目，非常适合红队快速部署设施。
+
+0x02 简介
+RedCloud是一款强大的工具箱，使用Docker快速部署红队设施，能够在几分钟内快速部署如Kali、Metasploit、Gofish等基础设施，并且通过Web界面管理容器。
+
+RedCloud-Github传送门
+RedCloud文件架构：
+
+RedCloud.py:使用Docker和Portainer启动/停止Web界面和应用模板
+Portainer:Portainer Web界面
+traefik:Traefik反向代理容器到Web界面，api和文件容器
+templates :http.server提供基础设施的python3 容器
+cert_gen：生成SSL证书的omgwtfssl容器。
+
+
+相关URL：
+
+https:/your-server-ip / portainer : RedCloud web界面
+https:// your ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/06/25/Kerberos%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" title="Kerberos学习记录">     <img class="post_bg" src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/BJW4eo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Kerberos学习记录"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/06/25/Kerberos%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" title="Kerberos学习记录">Kerberos学习记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-06-25T02:20:50.000Z" title="发表于 2020-06-25 10:20:50">2020-06-25</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">内网渗透</a></span></div><div class="content">前言
+最近在学习域渗透，整理了一下大佬的内容，巩固一下Kerberos基础。
+
+Kerberos 简介
+ Kerberos 是一种由 MIT（麻省理工大学）提出的一种网络身份验证协议。它旨在通过使用密钥加密技术为客户端/服务器应用程序提供强身份验证。
+
+Kerberos协议框架Kerberos协议三个主要角色：
+
+访问服务的Client
+提供服务的Sever
+KDC（Key Distribution Center） 密钥分发中心由上图中可以看到 KDC 又分为两个部分：
+
+
+ 如果把 Kerberos 中的票据类比为一张火车票，那么 Client 端就是乘客，Server 端就是火车，而 KDC 就是就是车站的认证系统。如果 Client 端的票据是合法的（由你本人身份证购买并由你本人持有）同时有访问 Server 端服务的权限（车票对应车次正确）那么你才能上车。当然和火车票不一样的是 Kerberos 中有存在两张票，而火车票从头到尾只有一张。 Authentication Server：AS 的作用就是验证 Client 端的身份（确定你是身份证上的本人），验证通过就会给一张 TG ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/06/14/C2-shad0w/" title="C2-shad0w">     <img class="post_bg" src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/IYxhOn.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C2-shad0w"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/06/14/C2-shad0w/" title="C2-shad0w">C2-shad0w</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-06-14T08:03:24.000Z" title="发表于 2020-06-14 16:03:24">2020-06-14</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8/">神兵利器</a></span></div><div class="content">C2-shad0w前言
+shad0w是一个后开发框架，旨在安全网络秘密运行，为攻击者提供更加便利的控制手段。
+
+##简介与安装
+
+sha0w在docker内部运行，所以需要安装docker环境
+
+这里以Centos7为环境搭建，
+
+使用官方安装脚本自动安装docker
+
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+
+也可以使用国内daocloud 一键安装命令：
+curl -sSL https://get.daocloud.io/docker | sh
+
+
+安装shad0w
+
+git clone https://github.com/bats3c/shad0w.git &amp;&amp; cd shad0wsudo ./shad0w install
+
+最终拉取镜像如下：
+
+使用方法开启监听启动C2服务器，开启监听
+shdow listen -e &lt;endpoint&gt;#&lt;endpoint&gt;为C2的监听ip地址或者域名，SSL证书同时动态生成
+
+
+如果要使用网站镜像功能，可以 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/05/24/Hackbox-Oopsie/" title="Hackbox-Oopsie">     <img class="post_bg" src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/TWxbAl.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hackbox-Oopsie"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05/24/Hackbox-Oopsie/" title="Hackbox-Oopsie">Hackbox-Oopsie</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-05-24T15:11:54.000Z" title="发表于 2020-05-24 23:11:54">2020-05-24</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%B6%E6%9C%BA%E5%A4%8D%E7%8E%B0/">靶机复现</a></span></div><div class="content">Hackbox -Oopsie信息搜集nmap -sV -T4 10.10.10.28
+
+
+观察发现，目标开放了22、80端口
+访问目标80端口，不知道什么一个稀奇古怪的网站
+
+Web页面的话，当然是启动burp神器
+burp观察爬取到一些url
+
+观察发现似乎有个登录页面，访问看看
+
+尝试攻击继上述登录页面，按老美的思路和常见这种靶机的打法思路来看，这种登录接口的密码极有可能和目标网站的一些关键词有关。
+利用burp爆破得到两个用户admin和administrator,密码都是MEGACORP_4dm1n!!
+登录一下查看
+
+有个上传页面，但似乎权限不足，根据提示还有个超级管理员账号
+
+刷新accounts页面，抓包发现有个诡异点
+
+挖SRC大佬肯定已经发现，这里可能存在越权或者用户遍历，试试爆破
+设置ID为爆破字段，Payload写个1到100吧，应该不会太大ID吧，不然我就要骂人了
+重定向选择总是跟随
+
+爆破得到ID值30为超级管理账户，user字段为86575，替换请求包，得到超级管理员权限
+
+再次访问上传页面
+
+上传php马
+利用工具weevely生成php webshel ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/05/18/Hackbox-%E5%88%9D%E6%8E%A2/" title="Hackbox初探">     <img class="post_bg" src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/DPYf7a.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hackbox初探"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05/18/Hackbox-%E5%88%9D%E6%8E%A2/" title="Hackbox初探">Hackbox初探</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-05-18T15:36:58.000Z" title="发表于 2020-05-18 23:36:58">2020-05-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%B6%E6%9C%BA%E5%A4%8D%E7%8E%B0/">靶机复现</a></span></div><div class="content">Hackbox初探简介
+hackthebox是一个非常不错的在线实验平台，能帮助你提升渗透测试技能和黑盒测试技能，平台上有很多靶机，从易到难，各个级别的靶机都有。
+
+关于hackbox注册账号，这里就不赘述了，详情参考百度
+信息探测Nmap扫描目标ip
+nmap -sC -sV -T4 10.10.10.27
+
+
+观察发现，目前开启了1433、445，开启了SQLserver和smb共享服务
+
+思路：目标开启了smb服务，尝试是否可匿名访问
+
+利用smbclient工具进行尝试访问
+smbclient -N -L \\\\10.10.10.27\\
+
+
+观察发现有个backup，很可疑，利用工具smbclient看看
+smbclient  -N \\\\10.10.10.27\\backups
+
+
+有一个dtsConfig文件，它是与SSIS一起使用的配置文件。
+相关SSIS介绍可参考下面链接
+
+https://baike.baidu.com/item/SSIS/5351898?fr=aladdin
+
+下载dtsConfig文件
+
+观察有个sql链接，还有个本地windows用户凭据A ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/05/07/%E5%9F%BA%E4%BA%8ECentos7%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BAELK/" title="基于Centos快速搭建ELK">     <img class="post_bg" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588876239117&amp;di=b4d1003190291d3da14c10004a58c036&amp;imgtype=0&amp;src=http%3A%2F%2Fp4.ssl.qhimg.com%2Ft0187295c3528fa925f.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基于Centos快速搭建ELK"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05/07/%E5%9F%BA%E4%BA%8ECentos7%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BAELK/" title="基于Centos快速搭建ELK">基于Centos快速搭建ELK</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-05-07T15:44:24.000Z" title="发表于 2020-05-07 23:44:24">2020-05-07</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%89%E5%85%A8%E8%BF%90%E8%90%A5/">安全运营</a></span></div><div class="content">基于Centos快速搭建ELK[TOC]
+
+ELK是一个成熟的日志系统，主要功能有收集、分析、检索，详细见 elastic官网。
+本文主要介绍如何在CentOS7下安装最新版本的ELK，当然现在docker已经有完全配置成功的elk容器，安装配置非常方便.
+
+环境准备
+centos-7-x86_64
+java8
+elasticsearch-7.6.2
+kibana-7.6.2
+logstash-7.6.2
+
+安装过程关闭防火墙和Selinux关闭Selinux
+vim /etc/sysconfig/selinux
+
+SELINUX=disabled      #需重启永久生效 wq                    #保存退出setenforce 0             #临时生效
+
+
+关闭Firewalld
+systemctl stop firewalld         #关闭防火墙systemctl disable firewalld    #禁止开机自启
+
+
+安装JDK先是确认环境rpm -qa|grep Java如果有其他版本的请删除rpm–e –nodeps jav ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/05/03/MoriartyCorp%E9%9D%B6%E5%9C%BA%E4%B8%80%E6%97%A5%E6%B8%B8/" title="MoriartyCorp靶场一日游">     <img class="post_bg" src="https://tva1.sinaimg.cn/large/006Xzox4ly1gdur6i3nqyg306o06owpl.gif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MoriartyCorp靶场一日游"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05/03/MoriartyCorp%E9%9D%B6%E5%9C%BA%E4%B8%80%E6%97%A5%E6%B8%B8/" title="MoriartyCorp靶场一日游">MoriartyCorp靶场一日游</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-05-03T06:35:02.000Z" title="发表于 2020-05-03 14:35:02">2020-05-03</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9D%B6%E6%9C%BA%E5%A4%8D%E7%8E%B0/">靶机复现</a></span></div><div class="content">Moriarty Corp靶场一日游靶场简介
+Moriarty Corp靶场环境包含一台外网服务器和三台内网主机，攻击者需先对外网服务器进行web攻击，依据提交flag后的提示信息，逐步获取内网主机权限。本次靶场环境包含以下10个关键部分：
+
+靶场攻略
+推荐靶机使用Virtualbox搭建（我是不会告诉你们我VMware翻车了）
+
+信息搜集
+利用Nmap进行简单的端口探测
+
+nmap -sn -PR -T 4 192.168.1.0/24
+
+
+-sn：只进行主机发现，不进行端口扫描。
+
+-PR：ARP Ping。
+
+-T：指定扫描过程使用的时序，总有6个级别（0-5），级别越高，扫描速度越快，在网络通讯状况较好的情况下推荐使用T4。
+
+
+
+这里也可以直接使用arp -a
+
+根据靶机说明，开启靶机需要先在靶机8000端口上提交flag&#123;start&#125;开启靶场环境
+
+
+
+
+初步探测访问靶机80端口，呈现以下页面
+
+访问其中两个博客链接，观察url可发现形式为file=xxx,猜测可能存在路径遍历或者文件包含漏洞
+
+fuzz中……..
+还fuzz个屁
+
+尝试文件包含
+
+包含 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/04/27/CVE-2020-11890%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" title="CVE-2020-11890漏洞复现">     <img class="post_bg" src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/MonR9j.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CVE-2020-11890漏洞复现"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/04/27/CVE-2020-11890%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" title="CVE-2020-11890漏洞复现">CVE-2020-11890漏洞复现</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-04-27T15:18:20.000Z" title="发表于 2020-04-27 23:18:20">2020-04-27</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">漏洞复现</a></span></div><div class="content">CVE-2020-11890漏洞复现漏洞简介
+Joomla!是美国Open Source Matters团队的一套使用PHP和MySQL开发的开源、跨平台的内容管理系统(CMS)。 Joomla! 2.5.0版本至3.9.16版本中存在访问控制错误漏洞，该漏洞源于不正确的输入验证。攻击者可利用该漏洞绕过ACL保护
+
+漏洞复现环境：docker
+利用docker拉取镜像
+docker pull hoangkien1020/joomla:3.9.16
+
+
+启动docker漏洞环境
+docker run -d --rm -it -p 8080:80 hoangkien1020/joomla:3.9.16
+
+
+打开本地8080端口
+
+观察到以上页面证明漏洞环境运行成功
+该漏洞环境相关参数如下：
+### MySQL: root: root (can access via IP:8080/phpmyadmin)### superadmin:1234 (Super Users)### admin:1234 (Administrator)### hacker:1234 (Manager) 
+
+POC如 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/A.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">夜莺</div><div class="author-info__description">行人事，听天命</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/nightgale-xxe"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/10/27/Slack%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%8C%E6%88%90%E5%AD%90%E5%9F%9F%E5%90%8D%E7%9B%91%E6%8E%A7/" title="Slack自动化完成子域名监控"><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fambition-media.s3.amazonaws.com%2Finternal%2Fmarketing%2Fintegration_images%2Fslack.png&amp;refer=http%3A%2F%2Fambition-media.s3.amazonaws.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1619338733&amp;t=8f16a0c855749ae21d82b78c8a46cc84" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Slack自动化完成子域名监控"/></a><div class="content"><a class="title" href="/2020/10/27/Slack%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%8C%E6%88%90%E5%AD%90%E5%9F%9F%E5%90%8D%E7%9B%91%E6%8E%A7/" title="Slack自动化完成子域名监控">Slack自动化完成子域名监控</a><time datetime="2020-10-27T07:05:13.000Z" title="发表于 2020-10-27 15:05:13">2020-10-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/09/13/NPS%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" title="NPS快速实战"><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/PLLVpo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="NPS快速实战"/></a><div class="content"><a class="title" href="/2020/09/13/NPS%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" title="NPS快速实战">NPS快速实战</a><time datetime="2020-09-13T06:49:22.000Z" title="发表于 2020-09-13 14:49:22">2020-09-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/16/%E7%BA%A2%E9%98%9F%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E6%90%AD%E5%BB%BA-RedCloud/" title="红队基础设施搭建-RedCloud"><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/mQ5G0n.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红队基础设施搭建-RedCloud"/></a><div class="content"><a class="title" href="/2020/08/16/%E7%BA%A2%E9%98%9F%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E6%90%AD%E5%BB%BA-RedCloud/" title="红队基础设施搭建-RedCloud">红队基础设施搭建-RedCloud</a><time datetime="2020-08-16T08:30:47.000Z" title="发表于 2020-08-16 16:30:47">2020-08-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/06/25/Kerberos%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" title="Kerberos学习记录"><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/BJW4eo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Kerberos学习记录"/></a><div class="content"><a class="title" href="/2020/06/25/Kerberos%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" title="Kerberos学习记录">Kerberos学习记录</a><time datetime="2020-06-25T02:20:50.000Z" title="发表于 2020-06-25 10:20:50">2020-06-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/06/14/C2-shad0w/" title="C2-shad0w"><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/IYxhOn.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C2-shad0w"/></a><div class="content"><a class="title" href="/2020/06/14/C2-shad0w/" title="C2-shad0w">C2-shad0w</a><time datetime="2020-06-14T08:03:24.000Z" title="发表于 2020-06-14 16:03:24">2020-06-14</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ATT-CK/"><span class="card-category-list-name">ATT&CK</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/RedTeam/"><span class="card-category-list-name">RedTeam</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"><span class="card-category-list-name">内网渗透</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AE%89%E5%85%A8%E8%BF%90%E8%90%A5/"><span class="card-category-list-name">安全运营</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"><span class="card-category-list-name">漏洞复现</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8/"><span class="card-category-list-name">神兵利器</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%9D%B6%E6%9C%BA%E5%A4%8D%E7%8E%B0/"><span class="card-category-list-name">靶机复现</span><span class="card-category-list-count">3</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/ATT-CK/" style="font-size: 1.1em; color: #999">ATT&CK</a> <a href="/tags/ELK/" style="font-size: 1.1em; color: #999">ELK</a> <a href="/tags/OSCP/" style="font-size: 1.5em; color: #99a9bf">OSCP</a> <a href="/tags/Redteam/" style="font-size: 1.3em; color: #99a1ac">Redteam</a> <a href="/tags/SRC/" style="font-size: 1.1em; color: #999">SRC</a> <a href="/tags/Tool/" style="font-size: 1.1em; color: #999">Tool</a> <a href="/tags/%E5%9F%9F%E6%B8%97%E9%80%8F/" style="font-size: 1.1em; color: #999">域渗透</a> <a href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" style="font-size: 1.3em; color: #99a1ac">漏洞复现</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">十月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/06/"><span class="card-archive-list-date">六月 2020</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/05/"><span class="card-archive-list-date">五月 2020</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/04/"><span class="card-archive-list-date">四月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/02/"><span class="card-archive-list-date">二月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/01/"><span class="card-archive-list-date">一月 2020</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">12</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-10-09T06:27:13.422Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2021 By 夜莺</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function subtitleType () {
+  getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(() => {
+    jinrishici.load(result =>{
+      if (true) {
+        const sub = []
+        const content = result.data.content
+        sub.unshift(content)
+        window.typed = new Typed('#subtitle', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('subtitle').innerHTML = result.data.content
+      }
+    })
+  })
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div><canvas id="universe"></canvas><script data-pjax src="/js/bubbles.js"></script><script data-pjax src="/js/universe.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
