@@ -1,0 +1,346 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>开源的C2服务器 | 夜莺</title><meta name="keywords" content="Tool"><meta name="author" content="夜莺"><meta name="copyright" content="夜莺"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="开源的C2服务器1.AresCommand add Control服务器，它是用于管理代理的Web界面。在受感染主机上运行的代理程序，可确保与CNC进行通信。 项目地址：https:&#x2F;&#x2F;github.com&#x2F;sweetsoftware&#x2F;Ares 支持语言：Python 2.AsyncRAT-C#是一种远程访问工具（RAT），旨在通过安全的加密连接来远程监视和控制其他计算机。 项目地址：https:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开源的C2服务器">
+<meta property="og:url" content="http://example.com/2021/12/21/%E5%BC%80%E6%BA%90%E7%9A%84C2%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
+<meta property="og:site_name" content="夜莺">
+<meta property="og:description" content="开源的C2服务器1.AresCommand add Control服务器，它是用于管理代理的Web界面。在受感染主机上运行的代理程序，可确保与CNC进行通信。 项目地址：https:&#x2F;&#x2F;github.com&#x2F;sweetsoftware&#x2F;Ares 支持语言：Python 2.AsyncRAT-C#是一种远程访问工具（RAT），旨在通过安全的加密连接来远程监视和控制其他计算机。 项目地址：https:">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/category_img.jpg">
+<meta property="article:published_time" content="2021-12-21T07:09:00.000Z">
+<meta property="article:modified_time" content="2021-12-21T07:09:59.480Z">
+<meta property="article:author" content="夜莺">
+<meta property="article:tag" content="Tool">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/category_img.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/12/21/%E5%BC%80%E6%BA%90%E7%9A%84C2%E6%9C%8D%E5%8A%A1%E5%99%A8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '开源的C2服务器',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-12-21 15:09:59'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><meta name="referrer" content="no-referrer-when-downgrade" /><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/custom.css"><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="夜莺" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/A.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/category_img.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">夜莺</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">开源的C2服务器</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-21T07:09:00.000Z" title="发表于 2021-12-21 15:09:00">2021-12-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-12-21T07:09:59.480Z" title="更新于 2021-12-21 15:09:59">2021-12-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/RedTeam/">RedTeam</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="开源的C2服务器"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="开源的C2服务器"><a href="#开源的C2服务器" class="headerlink" title="开源的C2服务器"></a>开源的C2服务器</h1><h1 id="1-Ares"><a href="#1-Ares" class="headerlink" title="1.Ares"></a>1.Ares</h1><p>Command add Control服务器，它是用于管理代理的Web界面。在受感染主机上运行的代理程序，可确保与CNC进行通信。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/sweetsoftware/Ares">https://github.com/sweetsoftware/Ares</a></p>
+<p>支持语言：Python</p>
+<h1 id="2-AsyncRAT-C"><a href="#2-AsyncRAT-C" class="headerlink" title="2.AsyncRAT-C#"></a>2.AsyncRAT-C#</h1><p>是一种远程访问工具（RAT），旨在通过安全的加密连接来远程监视和控制其他计算机。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/NYAN-x-CAT/AsyncRAT-C-Sharp">https://github.com/NYAN-x-CAT/AsyncRAT-C-Sharp</a></p>
+<p>支持语言：C＃&amp; .Net</p>
+<p>平台：Windows</p>
+<h1 id="3-BabyShark"><a href="#3-BabyShark" class="headerlink" title="3.BabyShark"></a>3.BabyShark</h1><p>基于GTRS的思想，GTRS使用Google翻译作为代理来向受感染的主机发送命令。BabyShark项目旨在集中化与代理的反向连接，从而创建一种集中化多种类型连接的方式。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/UnkL4b/BabyShark">https://github.com/UnkL4b/BabyShark</a></p>
+<p>支持语言：Python</p>
+<h1 id="4-C3"><a href="#4-C3" class="headerlink" title="4.C3"></a>4.C3</h1><p>自定义命令和控制（C3）。一个用于快速定制C2通道原型的框架，同时仍提供与现有攻击性工具包的集成。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/FSecureLABS/C3">https://github.com/FSecureLABS/C3</a></p>
+<p>支持语言：C++ </p>
+<p>版本更新：v1.3.0</p>
+<h1 id="5-CALDERA"><a href="#5-CALDERA" class="headerlink" title="5.CALDERA"></a>5.CALDERA</h1><p>一个网络安全框架，旨在轻松运行自主的违规和模拟练习。它也可用于运行手动红队参与或自动事件响应。它基于MITER ATT＆CK™框架构建，是MITRE的一项活跃的研究项目。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/mitre/caldera">https://github.com/mitre/caldera</a></p>
+<p>支持语言：Python &amp; go</p>
+<p>版本更新：2.9.0 支持web界面</p>
+<p>系统支持：windows linux macOS</p>
+<h1 id="6-Callidus"><a href="#6-Callidus" class="headerlink" title="6.Callidus"></a>6.Callidus</h1><p>它是使用C＃语言的.net核心框架开发的。允许操作员利用O365服务建立命令和控制通信通道。它使用Microsoft Graph API与O365服务进行通信。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/3xpl01tc0d3r/Callidus">https://github.com/3xpl01tc0d3r/Callidus</a></p>
+<p>支持语言：C# &amp; .Net</p>
+<p>系统支持：windows macOS</p>
+<h1 id="7-CHAOS"><a href="#7-CHAOS" class="headerlink" title="7.CHAOS"></a>7.CHAOS</h1><p>CHAOS是一个远程管理工具，它允许生成二进制文件来控制远程操作系统。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/tiagorlampert/CHAOS">https://github.com/tiagorlampert/CHAOS</a></p>
+<p>支持语言：go</p>
+<p>系统支持：windows linux macOS</p>
+<h1 id="8-Covenant"><a href="#8-Covenant" class="headerlink" title="8.Covenant"></a>8.Covenant</h1><p>Covenant是一个.NET命令和控制框架，旨在突出.NET的攻击面，使进攻性.NET商业工具的使用更加轻松，并充当红队成员的协作命令和控制平台。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/cobbr/Covenant">https://github.com/cobbr/Covenant</a></p>
+<p>支持语言：C#</p>
+<p>系统支持：windows</p>
+<h1 id="9-Dali"><a href="#9-Dali" class="headerlink" title="9.Dali"></a>9.Dali</h1><p>Dali是基于映像的C2通道的服务器端一半，利用Imgur托管映像和任务代理。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/h0mbre/Dali">https://github.com/h0mbre/Dali</a></p>
+<p>支持语言：python</p>
+<h1 id="10-DeimosC2"><a href="#10-DeimosC2" class="headerlink" title="10.DeimosC2"></a>10.DeimosC2</h1><p>DeimosC2是开发后的命令与控制（C2）工具，它利用多种通信方法来控制受到威胁的计算机。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/DeimosC2/DeimosC2">https://github.com/DeimosC2/DeimosC2</a></p>
+<p>支持语言：go</p>
+<p>系统支持：windows linux</p>
+<h1 id="11-Eggshell"><a href="#11-Eggshell" class="headerlink" title="11.Eggshell"></a>11.Eggshell</h1><p>EggShell是用Python编写的漏洞利用后监视工具。它为您提供了命令行会话，并在您和目标计算机之间提供了额外的功能。EggShell为您提供了上载/下载文件，制表符完成，拍照，位置跟踪，shell命令执行，持久性，权限提升，密码检索等等的强大功能和便利。这是项目的概念证明，旨在在您拥有的机器上使用。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/neoneggplant/EggShell">https://github.com/neoneggplant/EggShell</a></p>
+<p>支持语言：python</p>
+<h1 id="12-Empire"><a href="#12-Empire" class="headerlink" title="12.Empire"></a>12.Empire</h1><p>Empire 3是一个开发后框架，包括纯PowerShell Windows代理，并与Python 3.x Linux / OS X代理兼容。它是以前的PowerShell Empire和Python EmPyre项目的合并。该框架提供了密码安全的通信和灵活的体系结构。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/BC-SECURITY/Empire">https://github.com/BC-SECURITY/Empire</a></p>
+<p>支持语言：Python</p>
+<p>版本更新：v3.6.3</p>
+<p>系统支持：windows linux macOS</p>
+<h1 id="13-EvilOSX"><a href="#13-EvilOSX" class="headerlink" title="13.EvilOSX"></a>13.EvilOSX</h1><p>适用于macOS / OS X的邪恶RAT（远程管理工具）</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/Marten4n6/EvilOSX">https://github.com/Marten4n6/EvilOSX</a></p>
+<p>支持语言：Python</p>
+<p>系统支持：windows linux macOS</p>
+<h1 id="14-Faction-C2"><a href="#14-Faction-C2" class="headerlink" title="14.Faction C2"></a>14.Faction C2</h1><p>一个现代的，灵活的C2框架（当前为beta）</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/FactionC2/">https://github.com/FactionC2/</a></p>
+<p>支持语言：.net</p>
+<p>系统支持：windows</p>
+<h1 id="15-FlyingAFalseFlag"><a href="#15-FlyingAFalseFlag" class="headerlink" title="15.FlyingAFalseFlag"></a>15.FlyingAFalseFlag</h1><p>BlackHat USA 2019讨论命令和控制的幻灯片和概念代码</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/monoxgas/FlyingAFalseFlag">https://github.com/monoxgas/FlyingAFalseFlag</a></p>
+<p>支持语言：C++ &amp; python</p>
+<p>系统支持：windows</p>
+<h1 id="16-FudgeC2"><a href="#16-FudgeC2" class="headerlink" title="16.FudgeC2"></a>16.FudgeC2</h1><p>FudgeC2是一个Powershell C2平台，旨在促进团队协作和战役时间表，该平台在BlackHat Arsenal USA 2019上发布。旨在通过向客户提供更详细的对抗技术细节，帮助他们更好地理解红队活动。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/Ziconius/FudgeC2">https://github.com/Ziconius/FudgeC2</a></p>
+<p>支持语言：python</p>
+<p>系统支持：windows</p>
+<h1 id="17-godoh"><a href="#17-godoh" class="headerlink" title="17.godoh"></a>17.godoh</h1><p>godoh是用Golang编写的概念验证命令和控制框架，该框架使用DNS-over-HTTPS作为传输介质。当前受支持的提供商包括Google，Cloudflare，但还包含使用传统DNS的功能。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/sensepost/goDoH">https://github.com/sensepost/goDoH</a></p>
+<p>支持语言：go</p>
+<p>系统支持：windows linux macOS</p>
+<h1 id="18-GRAT2"><a href="#18-GRAT2" class="headerlink" title="18.GRAT2"></a>18.GRAT2</h1><p>GRAT2是用python3编写的命令和控制（C2）工具，而.NET 4.5是客户端。主要想法来自发起该项目的Georgios Koumettou。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/r3nhat/GRAT2">https://github.com/r3nhat/GRAT2</a></p>
+<p>支持语言：C# &amp; python</p>
+<h1 id="19-HARS"><a href="#19-HARS" class="headerlink" title="19.HARS"></a>19.HARS</h1><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/onSec-fr/Http-Asynchronous-Reverse-Shell">https://github.com/onSec-fr/Http-Asynchronous-Reverse-Shell</a></p>
+<p>支持语言：C# &amp; python</p>
+<p>系统支持：windows</p>
+<h1 id="20-HTTP-RevShell"><a href="#20-HTTP-RevShell" class="headerlink" title="20.HTTP-RevShell"></a>20.HTTP-RevShell</h1><p>HTTP-revshell是一个针对redteam练习和渗透测试者的工具。该工具通过http / s协议提供反向连接。它使用隐蔽渠道通过Web请求来控制受害机器，从而逃避了IDS，IPS和AV等解决方案。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/3v4Si0N/HTTP-revshell">https://github.com/3v4Si0N/HTTP-revshell</a></p>
+<p>支持语言：python</p>
+<h1 id="21-ibombshell"><a href="#21-ibombshell" class="headerlink" title="21.ibombshell"></a>21.ibombshell</h1><p>ibombshell是用Powershell编写的工具，它使您可以随时使用开发后的功能（在某些情况下是开发中）发出提示。它是一个直接下载到内存中的外壳，可以访问大量的渗透测试功能。这些功能可以Powershell功能的形式直接下载到内存中。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/Telefonica/ibombshell">https://github.com/Telefonica/ibombshell</a></p>
+<p>支持语言：python</p>
+<p>系统支持：windows linux macOS</p>
+<h1 id="22-INNUENDO"><a href="#22-INNUENDO" class="headerlink" title="22.INNUENDO"></a>22.INNUENDO</h1><p>项目地址：<a target="_blank" rel="noopener" href="https://www.immunityinc.com/products/innuendo/">https://www.immunityinc.com/products/innuendo/</a></p>
+<p>支持语言：python</p>
+<p>系统支持：windows linux macOS</p>
+<h1 id="23-Koadic-C3"><a href="#23-Koadic-C3" class="headerlink" title="23.Koadic C3"></a>23.Koadic C3</h1><p>从阶段0到更高阶段，可以完全在内存中提供有效载荷，也可以使用基于SSL和TLS的加密安全通信（取决于受害OS启用的功能）。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/zerosum0x0/koadic">https://github.com/zerosum0x0/koadic</a></p>
+<p>支持语言：python</p>
+<p>系统支持：windows</p>
+<h1 id="24-MacShellSwift"><a href="#24-MacShellSwift" class="headerlink" title="24.MacShellSwift"></a>24.MacShellSwift</h1><p>用Swift编写的概念证明MacOS后期开发工具。设计为POC，供蓝色团队构建macOS检测。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/cedowens/MacShellSwift">https://github.com/cedowens/MacShellSwift</a></p>
+<p>支持语言：python</p>
+<p>系统支持：macOS</p>
+<h1 id="25-Merlin"><a href="#25-Merlin" class="headerlink" title="25.Merlin"></a>25.Merlin</h1><p>Merlin是使用golang编写的跨平台的利用后HTTP / 2命令和控制服务器和代理。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/Ne0nd0g/merlin">https://github.com/Ne0nd0g/merlin</a></p>
+<p>支持语言：go</p>
+<p>系统支持：windows linux macOS</p>
+<h1 id="26-Meterpeter"><a href="#26-Meterpeter" class="headerlink" title="26.Meterpeter"></a>26.Meterpeter</h1><p>具有内置命令的C2 Powershell命令和控制框架（模块）</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/r00t-3xp10it/meterpeter">https://github.com/r00t-3xp10it/meterpeter</a></p>
+<p>支持语言：go</p>
+<p>版本更新：v2.10.3开发版</p>
+<p>系统支持：windows linux macOS</p>
+<h1 id="27、WinRM"><a href="#27、WinRM" class="headerlink" title="27、WinRM"></a>27、WinRM</h1><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/Hackplayers/evil-winrm">链接</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">夜莺</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/12/21/%E5%BC%80%E6%BA%90%E7%9A%84C2%E6%9C%8D%E5%8A%A1%E5%99%A8/">http://example.com/2021/12/21/开源的C2服务器/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">夜莺</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Tool/">Tool</a></div><div class="post_share"><div class="social-share" data-image="/img/category_img.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2020/10/27/Slack%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%8C%E6%88%90%E5%AD%90%E5%9F%9F%E5%90%8D%E7%9B%91%E6%8E%A7/"><img class="next-cover" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fambition-media.s3.amazonaws.com%2Finternal%2Fmarketing%2Fintegration_images%2Fslack.png&amp;refer=http%3A%2F%2Fambition-media.s3.amazonaws.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1619338733&amp;t=8f16a0c855749ae21d82b78c8a46cc84" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Slack自动化完成子域名监控</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/06/14/C2-shad0w/" title="C2-shad0w"><img class="cover" src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/IYxhOn.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-14</div><div class="title">C2-shad0w</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/A.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">夜莺</div><div class="author-info__description">行人事，听天命</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/nightgale-xxe"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E7%9A%84C2%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">开源的C2服务器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Ares"><span class="toc-number">2.</span> <span class="toc-text">1.Ares</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-AsyncRAT-C"><span class="toc-number">3.</span> <span class="toc-text">2.AsyncRAT-C#</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-BabyShark"><span class="toc-number">4.</span> <span class="toc-text">3.BabyShark</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-C3"><span class="toc-number">5.</span> <span class="toc-text">4.C3</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-CALDERA"><span class="toc-number">6.</span> <span class="toc-text">5.CALDERA</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-Callidus"><span class="toc-number">7.</span> <span class="toc-text">6.Callidus</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-CHAOS"><span class="toc-number">8.</span> <span class="toc-text">7.CHAOS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-Covenant"><span class="toc-number">9.</span> <span class="toc-text">8.Covenant</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-Dali"><span class="toc-number">10.</span> <span class="toc-text">9.Dali</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-DeimosC2"><span class="toc-number">11.</span> <span class="toc-text">10.DeimosC2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-Eggshell"><span class="toc-number">12.</span> <span class="toc-text">11.Eggshell</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12-Empire"><span class="toc-number">13.</span> <span class="toc-text">12.Empire</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-EvilOSX"><span class="toc-number">14.</span> <span class="toc-text">13.EvilOSX</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14-Faction-C2"><span class="toc-number">15.</span> <span class="toc-text">14.Faction C2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#15-FlyingAFalseFlag"><span class="toc-number">16.</span> <span class="toc-text">15.FlyingAFalseFlag</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#16-FudgeC2"><span class="toc-number">17.</span> <span class="toc-text">16.FudgeC2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#17-godoh"><span class="toc-number">18.</span> <span class="toc-text">17.godoh</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#18-GRAT2"><span class="toc-number">19.</span> <span class="toc-text">18.GRAT2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#19-HARS"><span class="toc-number">20.</span> <span class="toc-text">19.HARS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#20-HTTP-RevShell"><span class="toc-number">21.</span> <span class="toc-text">20.HTTP-RevShell</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#21-ibombshell"><span class="toc-number">22.</span> <span class="toc-text">21.ibombshell</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#22-INNUENDO"><span class="toc-number">23.</span> <span class="toc-text">22.INNUENDO</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#23-Koadic-C3"><span class="toc-number">24.</span> <span class="toc-text">23.Koadic C3</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#24-MacShellSwift"><span class="toc-number">25.</span> <span class="toc-text">24.MacShellSwift</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#25-Merlin"><span class="toc-number">26.</span> <span class="toc-text">25.Merlin</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#26-Meterpeter"><span class="toc-number">27.</span> <span class="toc-text">26.Meterpeter</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#27%E3%80%81WinRM"><span class="toc-number">28.</span> <span class="toc-text">27、WinRM</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/12/21/%E5%BC%80%E6%BA%90%E7%9A%84C2%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="开源的C2服务器"><img src="/img/category_img.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="开源的C2服务器"/></a><div class="content"><a class="title" href="/2021/12/21/%E5%BC%80%E6%BA%90%E7%9A%84C2%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="开源的C2服务器">开源的C2服务器</a><time datetime="2021-12-21T07:09:00.000Z" title="发表于 2021-12-21 15:09:00">2021-12-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/10/27/Slack%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%8C%E6%88%90%E5%AD%90%E5%9F%9F%E5%90%8D%E7%9B%91%E6%8E%A7/" title="Slack自动化完成子域名监控"><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fambition-media.s3.amazonaws.com%2Finternal%2Fmarketing%2Fintegration_images%2Fslack.png&amp;refer=http%3A%2F%2Fambition-media.s3.amazonaws.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1619338733&amp;t=8f16a0c855749ae21d82b78c8a46cc84" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Slack自动化完成子域名监控"/></a><div class="content"><a class="title" href="/2020/10/27/Slack%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%8C%E6%88%90%E5%AD%90%E5%9F%9F%E5%90%8D%E7%9B%91%E6%8E%A7/" title="Slack自动化完成子域名监控">Slack自动化完成子域名监控</a><time datetime="2020-10-27T07:05:13.000Z" title="发表于 2020-10-27 15:05:13">2020-10-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/09/21/CVE-2020-1472%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" title="CVE-2020-1472漏洞复现"><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/TeTPp5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CVE-2020-1472漏洞复现"/></a><div class="content"><a class="title" href="/2020/09/21/CVE-2020-1472%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" title="CVE-2020-1472漏洞复现">CVE-2020-1472漏洞复现</a><time datetime="2020-09-21T11:41:29.000Z" title="发表于 2020-09-21 19:41:29">2020-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/09/13/NPS%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" title="NPS快速实战"><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/PLLVpo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="NPS快速实战"/></a><div class="content"><a class="title" href="/2020/09/13/NPS%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" title="NPS快速实战">NPS快速实战</a><time datetime="2020-09-13T06:49:22.000Z" title="发表于 2020-09-13 14:49:22">2020-09-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/16/%E7%BA%A2%E9%98%9F%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E6%90%AD%E5%BB%BA-RedCloud/" title="红队基础设施搭建-RedCloud"><img src="https://blog-1255850204.cos.ap-guangzhou.myqcloud.com/uPic/mQ5G0n.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红队基础设施搭建-RedCloud"/></a><div class="content"><a class="title" href="/2020/08/16/%E7%BA%A2%E9%98%9F%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E6%90%AD%E5%BB%BA-RedCloud/" title="红队基础设施搭建-RedCloud">红队基础设施搭建-RedCloud</a><time datetime="2020-08-16T08:30:47.000Z" title="发表于 2020-08-16 16:30:47">2020-08-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2021 By 夜莺</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><canvas id="universe"></canvas><script data-pjax src="/js/bubbles.js"></script><script data-pjax src="/js/universe.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
